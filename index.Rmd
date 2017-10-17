@@ -1,0 +1,27 @@
+---
+title: "Plotly Assignment"
+author: "Simon Lidberg"
+date: "2017-10-17"
+output: 
+  html_document:
+    smart: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+require(ggplot2)
+require(plotly)
+require(dplyr)
+```
+
+## Loading and plotting data
+```{r loadData}
+dataset <- data.frame(mpg)
+```
+Plot the data in a box plot from ggplot2 into plotly.
+
+```{r, echo=FALSE, message=FALSE}
+gg <- ggplot(dataset, aes(class, hwy)) + geom_boxplot(aes(color = drv))
+
+ggplotly(gg)
+```
